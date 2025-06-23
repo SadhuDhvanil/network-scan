@@ -1,37 +1,33 @@
-# Task 1: Scan Your Local Network for Open Ports
+Task 1: Scan Your Local Network for Open Ports
 
-## 🔍 Objective
+🔍 Objective
 To discover active hosts and open TCP ports in the local network using Nmap, understand the services running, and identify potential security risks.
 
-## 🛠 Tools Used
+🛠 Tools Used
 - [Nmap](https://nmap.org/)
-- (Optional) Wireshark
+- Wireshark 
 
-## 🧾 Steps Followed
+🧾 Steps Followed
 1. Installed Nmap on Kali Linux.
-2. Identified local IP and subnet using `ifconfig`.
+2. Identified local IP and subnet using `ifconfig`(since using Linux(kali OS)).
 3. Ran a TCP SYN scan:  nmap -sS 10.0.2.0/24
 4. Analyzed the scan results and identified open ports.
-5. Saved scan results in both text and XML format.
+5. Also analysed the working of stealth scanning through wireshark using this filter "tcp.flags.syn==1 && tcp.flags.ack==0".
 6. Took screenshots for reference.
 
-## 📂 Files Included
-- **screenshots/**: Contains `ifconfig` and Nmap scan screenshots.
-- **scan-results/**:
-- `local_scan.txt`: Plain text output of the Nmap scan.
-- `local_scan.xml`: XML format (can be converted to HTML if needed).
-- **README.md**: Explains the process and findings.
+📂 Files Included
+- **screenshots/**: Contains `ifconfig` and Nmap scan screenshots and wireshark packets showing scan results.
 
-## 📊 Findings Summary
+📊 Findings Summary
 | IP Address | Open Ports | Services Detected |
 |------------|------------|-------------------|
 | 10.0.2.2   | 5000, 7000 | UPnP, AFS Fileserver |
 | 10.0.2.3   | 53         | DNS |
 | 10.0.2.15  | None       | - |
 
-## ⚠️ Potential Risks
+⚠️ Potential Risks
 - **UPnP** and **AFS Fileserver** may be unnecessary services.
 - Ensure DNS is properly configured and not exposed externally.
 
-## ✅ Conclusion
+✅ Conclusion
 This scan provided insights into network exposure. The unnecessary services should be reviewed or disabled for better security.
